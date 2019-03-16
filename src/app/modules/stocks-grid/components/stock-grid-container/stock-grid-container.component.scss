@@ -1,0 +1,63 @@
+.table-container{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(5, 5, 5, 0.829);
+    display: flex;
+    color: white;
+    table{
+        width: 1200px;
+        margin: 15px auto auto auto;
+        border-collapse: collapse;
+        border: 1px solid rgba(121, 121, 121, 0.781);
+        td,th{
+            width: 300px;
+            text-align: left;            
+            height: 30px;
+            padding-left: 12px;
+            box-sizing: border-box;
+            .price{
+                width:60px;
+                height:20px;
+                line-height:20px;
+                padding:8px;
+                text-align:center;
+                border:2px solid transparent;
+            }
+        }
+        th{
+            height: 40px;
+            font-family: sans-serif;
+            // font-weight: 400;
+        }
+        .increased{
+            // background-color: rgb(26, 238, 26);
+            border:2px solid rgb(26, 238, 26) !important;
+
+            -webkit-animation: toggleGreen 1s;
+        }
+        .decreased{
+            border:2px solid rgb(245, 55, 55) !important;
+            -webkit-animation: toggleRed 1s;
+        }
+
+        @-webkit-keyframes toggleGreen{
+            0% {background-color: transparent}
+            50% {background-color: rgb(26, 238, 26);}
+            100% {
+                background-color: transparent;
+                border:2px solid rgb(26, 238, 26);
+            }
+
+        }
+        @-webkit-keyframes toggleRed{
+            0% {background-color: transparent}
+            50% {background-color: rgb(245, 55, 55)}
+            100% {
+                background-color: transparent;
+                border:2px solid rgb(245, 55, 55);
+            }        
+        }
+        
+    }
+}

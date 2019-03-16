@@ -1,3 +1,18 @@
-<p>
-  stock-grid-container works!
-</p>
+<div class="table-container"> 
+  <table *ngIf="data" border=1>
+    <tr>
+      <th>Ticker</th>
+      <th>Price</th>
+      <th>Last Updated On</th>
+    </tr>
+    <tr *ngFor="let items of keys"  [id]="items+'s'">
+      <td>{{items}}</td>
+      <td>
+        <div class="price" [class.decreased]="data[items][1] === false" [class.increased] = "data[items][1]" >
+          {{data[items][0]}}
+        </div>
+      </td>
+      <td >{{data[items][2] | date:'medium' }}</td>
+    </tr>
+  </table>
+</div>
