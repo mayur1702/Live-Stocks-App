@@ -9,11 +9,12 @@ import { FusionChartsModule } from 'angular-fusioncharts';
 import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as TimeSeries from 'fusioncharts/fusioncharts.timeseries';
+import { StockHistoryContainerComponent } from './components/stock-history-container/stock-history-container.component';
 
 FusionChartsModule.fcRoot(FusionCharts, Charts, TimeSeries);
 
 @NgModule({
-  declarations: [StockGridContainerComponent],
+  declarations: [StockGridContainerComponent, StockHistoryContainerComponent],
   imports: [
     CommonModule,
     StocksGridRoutingModule,

@@ -1,28 +1,42 @@
-<div class="table-container"> 
-  <table *ngIf="stockData" border=1>
-    <tr>
-      <th>Ticker</th>
-      <th>Price</th>
-      <th>Last Updated On</th>
-    </tr>    
-    <tr *ngFor="let items of stockKeys" >
-      <td>{{items}}</td>
-      <td class="stock-price">
-        <div style="display:flex">
-            <div class="price" 
-            [class.decreased]="stockData[items][1] === false" 
-            [class.increased] = "stockData[items][1]" 
-            [class.new-data] = "stockData[items][1] === undefined">
-              {{stockData[items][0]}}
-            </div>
-            <div class="price"
-            [class.red]="stockData[items][1] === false" 
-            [class.green] = "stockData[items][1]"
-            >{{stockData[items][3]}}</div>
-        </div>
-
-      </td>
-      <td >{{stockData[items][2] | date:'medium' }}</td>
-    </tr>
-  </table>
+<div class="main-container">
+    <div class="table-container"> 
+        <table *ngIf="stockData">
+          <tr>
+            <th>Ticker</th>
+            <th>Price</th>
+            <th>Last Updated On</th>
+          </tr>    
+          <tr *ngFor="let items of stockKeys" >
+            <td (click)="getHistory(items)"  >
+              <span [class.red]="stockData[items][1] === false"
+              style="cursor:pointer;text-decoration: underline" 
+              [class.green] = "stockData[items][1]"> 
+              {{items | uppercase}}
+              </span></td>
+            <td class="stock-price">
+              <div style="display:flex">
+                  <div class="price" 
+                  [class.decreased]="stockData[items][1] === false" 
+                  [class.increased] = "stockData[items][1]" 
+                  [class.new-data] = "stockData[items][1] === undefined">
+                    $ {{stockData[items][0]}}
+                  </div>
+                  <div class="price"
+                  [class.red]="stockData[items][1] === false" 
+                  [class.green] = "stockData[items][1]"
+                  ><span *ngIf="stockData[items][3]">{{stockData[items][3]}}% </span>
+                  <span *ngIf="stockData[items][1] === false" class="red">↓</span>
+                  <span *ngIf="stockData[items][1]" class="green">↑</span>
+                </div>
+              </div>
+      
+            </td>
+            <td >{{stockData[items][2] | date:'medium' }}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="history-container" *ngIf="!showTable">
+        <app-stock-history-container [selectedTickerHistory]="selectedTicker" (closeHistoryEvent)="closeHistory($event)"></app-stock-history-container>
+      </div>
 </div>
+

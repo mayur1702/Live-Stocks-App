@@ -1,0 +1,25 @@
+<div class="history-content">
+    <div class="ticker-header">
+        <span>Ticker - {{selectedTickerHistory[0] | uppercase}}</span>
+        <span (click)="hideHistory()" >Hide</span>
+    </div>
+    <div class="table-container">
+        <table border="1">
+            <tr>
+                <th>Price</th>
+                <th>TimeStamp</th>
+                <th>Difference</th>
+            </tr>
+            <tr *ngFor="let items of selectedTickerHistory[1];let j = index">
+                <td [class]="items[2]<0?'red':'green'">{{items[0]}}</td>
+                <td>{{items[1] | date:'medium'}}</td>
+                <td [class]="items[2]<0?'red':'green'" >
+                    <span *ngIf="items[2]">{{items[2]}} % </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+

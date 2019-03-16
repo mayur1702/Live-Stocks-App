@@ -13,6 +13,8 @@ export class StockGridContainerComponent implements OnInit {
   stockData={};
   stockKeys=[];
   stockHistoryData={};
+  showTable:boolean=true;
+  selectedTicker;
 
   ngOnInit() {
     this.stocksData.getStocksData().subscribe(
@@ -33,8 +35,8 @@ export class StockGridContainerComponent implements OnInit {
         else{
           colorStatus = false;
         }
-        difference = Number((((-this.stockData[x[0]][0] + x[1])/this.stockData[x[0]][0])*100).toFixed(2))+"%";
-        this.stockHistoryData[x[0]].push([Number((x[1]).toFixed(2)),new Date()],difference);
+        difference = Number((((-this.stockData[x[0]][0] + x[1])/this.stockData[x[0]][0])*100).toFixed(2));
+        this.stockHistoryData[x[0]].push([Number((x[1]).toFixed(2)),new Date(),difference]);
       }
       else{
         this.stockKeys.push(x[0]);
@@ -44,6 +46,14 @@ export class StockGridContainerComponent implements OnInit {
     });
   }
 
+  getHistory(ticker){
+    this.selectedTicker = [ticker,this.stockHistoryData[ticker]];
+    this.showTable = false;
+  }
+
+  closeHistory(value){
+    this.showTable = value;
+  }
 
 
 }

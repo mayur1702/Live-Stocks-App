@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { StockGridContainerComponent} from './components/stock-grid-container/stock-grid-container.component';
 
 const routes: Routes = [
-  {path:'home',component:StockGridContainerComponent},
+  {path:'',component:StockGridContainerComponent},
   {path:'graphs',component:StockGridContainerComponent},
 ];
 
