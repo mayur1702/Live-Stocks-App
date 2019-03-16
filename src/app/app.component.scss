@@ -1,0 +1,41 @@
+.nav-bar{
+    width: 100%;
+    height: 60px;
+    line-height: 44px;
+    box-sizing: border-box;
+    padding: 8px 16px;
+    background-color: black;
+    color: white;
+    display: flex;
+    .app-title{
+        span{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    }
+    .nav-links{
+        margin: auto 0px auto auto;
+        display: flex;
+        .links{
+            width: 60px;
+            margin-right: 20px !important;
+            height: 20px;
+            line-height: 20px;
+            margin: auto;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            text-align: center;
+            outline: none;
+        }
+        .links:hover{
+            border-bottom: 2px solid white;
+            transition: border-bottom 1s ease-in-out;
+        }
+    }
+}
+.content-container{
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow: auto;
+}
