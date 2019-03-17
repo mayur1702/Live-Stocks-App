@@ -5,6 +5,7 @@
     height: 100%;
     padding: 30px 60px;
     box-sizing: border-box;
+    overflow: overlay;
     .ticker-header,.graph-header{
         width: 100%;
         height: 30px;
@@ -12,6 +13,9 @@
         border-bottom: 2px solid #ccc;
         margin-bottom: 12px;
         display: flex;
+        img{
+            margin: auto 8px;
+        }
         span{
             font-size: 18px;
         }

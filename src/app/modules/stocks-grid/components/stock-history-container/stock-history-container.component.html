@@ -2,6 +2,21 @@
     <div style="color: white" class="close-history">
         <button (click)="hideHistory()" class="close-button">Close History</button>
     </div>
+    <div class="graph-header">
+        <span >Graph View</span>
+        <button (click)="graphView()">Refresh </button><img src="../../../../../assets/refresh.png" width="14px" height="14px">
+        <span (click)="toggleGraphView()" >{{toggleGraphText}}</span>
+    </div>
+    <div class="table-container">
+        <fusioncharts *ngIf="hideGraph"
+    [width]="graphWidth"
+    [height]="graphHeight"
+    [type]="graphType"
+    [dataFormat]="dataFormat"
+    [dataSource]="graphData">
+</fusioncharts>
+    </div>
+    
     <div class="ticker-header" >
         <span>Ticker History - {{selectedTickerHistory[0] | uppercase}}</span>
         <span (click)="toggleTableView()">{{toggleTableText}}</span>
@@ -13,7 +28,7 @@
                 <th>TimeStamp</th>
                 <th>Difference</th>
             </tr>
-            <tr *ngFor="let items of selectedTickerHistory[1];let j = index">
+            <tr *ngFor="let items of selectedTickerHistory[1].reverse();let j = index ">
                 <td [class]="items[2]<0?'red':'green'">{{items[0]}}</td>
                 <td>{{items[1] | date:'medium'}}</td>
                 <td [class]="items[2]<0?'red':'green'" >
@@ -22,18 +37,7 @@
             </tr>
         </table>
     </div>
-    <div class="graph-header">
-        <span >Graph View</span>
-        <button (click)="graphView()">Refresh</button>
-        <span (click)="toggleGraphView()" >{{toggleGraphText}}</span>
-    </div>
-    <fusioncharts *ngIf="hideGraph"
-    [width]="graphWidth"
-    [height]="graphHeight"
-    [type]="graphType"
-    [dataFormat]="dataFormat"
-    [dataSource]="graphData">
-</fusioncharts>
+
 </div>
 
 

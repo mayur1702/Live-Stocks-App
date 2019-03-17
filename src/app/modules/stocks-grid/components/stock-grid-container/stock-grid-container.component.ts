@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StockSocketService } from '../../services/stock-socket.service';
-import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-stock-grid-container',

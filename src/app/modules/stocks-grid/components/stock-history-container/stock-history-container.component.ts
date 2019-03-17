@@ -22,14 +22,14 @@ export class StockHistoryContainerComponent implements OnInit {
     }
   };
 
-  graphWidth:number ;
+  graphWidth = 520 ;
   graphHeight:number = 400;
   graphType:string = 'msline';
   dataFormat:string = 'json';
-  hideTable:boolean = true;
-  toggleTableText:string = "Hide";
-  hideGraph:boolean = false;
-  toggleGraphText:string = "Show";
+  hideTable:boolean = false;
+  toggleTableText:string = "Show";
+  hideGraph:boolean = true;
+  toggleGraphText:string = "Hide";
   
 
   ngOnInit() {    
@@ -83,6 +83,6 @@ export class StockHistoryContainerComponent implements OnInit {
   }
 
   ngAfterViewChecked(){
-    this.graphWidth = this.theDiv.nativeElement.offsetHeight - 45;
+    // this.graphWidth = this.theDiv.nativeElement.offsetHeight - 45;
   }
 }
