@@ -1,5 +1,5 @@
 <div class="main-container">
-    <div class="table-container"> 
+    <div class="table-container" [class.hide-completely]="!showTable"> 
         <table *ngIf="stockData">
           <tr>
             <th>Ticker</th>

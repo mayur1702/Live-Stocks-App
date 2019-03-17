@@ -1,9 +1,12 @@
-<div class="history-content">
-    <div class="ticker-header">
-        <span>Ticker - {{selectedTickerHistory[0] | uppercase}}</span>
-        <span (click)="hideHistory()" >Hide</span>
+<div class="history-content"  #tableDiv>
+    <div style="color: white" class="close-history">
+        <button (click)="hideHistory()" class="close-button">Close History</button>
     </div>
-    <div class="table-container">
+    <div class="ticker-header" >
+        <span>Ticker History - {{selectedTickerHistory[0] | uppercase}}</span>
+        <span (click)="toggleTableView()">{{toggleTableText}}</span>
+    </div>
+    <div  class="table-container" *ngIf="hideTable" >
         <table border="1">
             <tr>
                 <th>Price</th>
@@ -19,7 +22,20 @@
             </tr>
         </table>
     </div>
+    <div class="graph-header">
+        <span >Graph View</span>
+        <button (click)="graphView()">Refresh</button>
+        <span (click)="toggleGraphView()" >{{toggleGraphText}}</span>
+    </div>
+    <fusioncharts *ngIf="hideGraph"
+    [width]="width"
+    [height]="height"
+    [type]="type"
+    [dataFormat]="dataFormat"
+    [dataSource]="graphData">
+</fusioncharts>
 </div>
+
 
 
 

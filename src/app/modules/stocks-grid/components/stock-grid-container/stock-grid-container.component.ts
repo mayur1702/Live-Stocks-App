@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StockSocketService } from '../../services/stock-socket.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-stock-grid-container',
@@ -17,6 +18,7 @@ export class StockGridContainerComponent implements OnInit {
   selectedTicker;
 
   ngOnInit() {
+    // console.log(moment().fromNow());
     this.stocksData.getStocksData().subscribe(
       (val) => { this.receivedData(val)}
     )
@@ -42,7 +44,7 @@ export class StockGridContainerComponent implements OnInit {
         this.stockKeys.push(x[0]);
         this.stockHistoryData[x[0]] = [[Number((x[1]).toFixed(2)),new Date()]];
       }
-      this.stockData[x[0]] = [Number((x[1]).toFixed(2)),colorStatus,new Date(),difference];
+      this.stockData[x[0]] = [Number((x[1]).toFixed(2)),colorStatus,new Date(),difference,];
     });
   }
 
