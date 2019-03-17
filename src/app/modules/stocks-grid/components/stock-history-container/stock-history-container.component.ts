@@ -9,10 +9,10 @@ export class StockHistoryContainerComponent implements OnInit {
 
   constructor(private elref:ElementRef) { }
   
-  @ViewChild('tableDiv') theDiv:ElementRef;
+  @ViewChild('tableDiv') theDiv: ElementRef;
 
   @Input() selectedTickerHistory;
-  @Output() closeHistoryEvent:EventEmitter<boolean> = new EventEmitter();
+  @Output() closeHistoryEvent: EventEmitter<boolean> = new EventEmitter();
 
   graphData={
     "chart": {      
@@ -23,13 +23,13 @@ export class StockHistoryContainerComponent implements OnInit {
   };
 
   graphWidth = 520 ;
-  graphHeight:number = 400;
-  graphType:string = 'msline';
-  dataFormat:string = 'json';
-  hideTable:boolean = false;
-  toggleTableText:string = "Show";
-  hideGraph:boolean = true;
-  toggleGraphText:string = "Hide";
+  graphHeight: number = 400;
+  graphType: string = 'msline';
+  dataFormat: string = 'json';
+  hideTable: boolean = false;
+  toggleTableText: string = "Show";
+  hideGraph: boolean = true;
+  toggleGraphText: string = "Hide";
   
 
   ngOnInit() {    

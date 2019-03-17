@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container" [class.two-grids]="!showTable">
     <div class="table-container" [class.hide-completely]="!showTable"> 
         <table *ngIf="stockData">
           <tr>
@@ -34,9 +34,9 @@
             <td >{{stockData[items][2] | date:'medium' }}</td>
           </tr>
         </table>
-      </div>
-      <div class="history-container" *ngIf="!showTable">
-        <app-stock-history-container [selectedTickerHistory]="selectedTicker" (closeHistoryEvent)="closeHistory($event)"></app-stock-history-container>
-      </div>
+    </div>
+    <div class="history-container" *ngIf="!showTable">
+      <app-stock-history-container [selectedTickerHistory]="selectedTicker" (closeHistoryEvent)="closeHistory($event)"></app-stock-history-container>
+    </div>
 </div>
 

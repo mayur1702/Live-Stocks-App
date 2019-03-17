@@ -7,12 +7,12 @@ import { environment } from 'src/environments/environment';
 })
 export class StockSocketService {
 
-  ws : WebSocket;
+  ws: WebSocket;
 
   constructor() {}
 
-  getStocksData():Observable<any[]>{
-    this.ws = new WebSocket(environment.liveStocksURL);
+  getStocksData(): Observable<any[]>{
+    this.ws = new WebSocket( environment.liveStocksURL );
     return new Observable<any[]>(
       observer =>{
         this.ws.onmessage = (event) => { 
