@@ -28,9 +28,9 @@
         <span (click)="toggleGraphView()" >{{toggleGraphText}}</span>
     </div>
     <fusioncharts *ngIf="hideGraph"
-    [width]="width"
-    [height]="height"
-    [type]="type"
+    [width]="graphWidth"
+    [height]="graphHeight"
+    [type]="graphType"
     [dataFormat]="dataFormat"
     [dataSource]="graphData">
 </fusioncharts>

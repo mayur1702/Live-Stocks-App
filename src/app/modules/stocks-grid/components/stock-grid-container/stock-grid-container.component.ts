@@ -18,7 +18,6 @@ export class StockGridContainerComponent implements OnInit {
   selectedTicker;
 
   ngOnInit() {
-    // console.log(moment().fromNow());
     this.stocksData.getStocksData().subscribe(
       (val) => { this.receivedData(val)}
     )
@@ -26,8 +25,7 @@ export class StockGridContainerComponent implements OnInit {
 
   receivedData(dataValue){
     dataValue.map(x=>{
-      // console.log(`${x[0]}: ${x[1]}`);
-
+      console.log(`${x[0]}: ${x[1]}`);
       let colorStatus;
       let difference;
       if(this.stockKeys.indexOf(x[0])!=-1){

@@ -57,18 +57,18 @@
             }
             .increased{
                 border:2px solid $green !important;
-                -webkit-animation: toggleGreen 1s;
+                animation: toggleGreen 1s;
             }
             .decreased{
                 border:2px solid $red !important;
-                -webkit-animation: toggleRed 1s;
+                animation: toggleRed 1s;
             }
             .new-data{
                 border:2px solid white !important;
-                -webkit-animation: toggleWhite 1s;
+                animation: toggleWhite 1s;
             }
 
-            @-webkit-keyframes toggleGreen{
+            @keyframes toggleGreen{
                 0% {background-color: transparent}
                 50% {background-color: $green;}
                 100% {
@@ -76,7 +76,7 @@
                     border:2px solid $green;
                 }
             }
-            @-webkit-keyframes toggleRed{
+            @keyframes toggleRed{
                 0% {background-color: transparent}
                 50% {background-color: $red}
                 100% {
@@ -84,7 +84,7 @@
                     border:2px solid $red;
                 }        
             }
-            @-webkit-keyframes toggleWhite{
+            @keyframes toggleWhite{
                 0% {background-color: transparent}
                 50% {background-color: white;color: black;}
                 100% {

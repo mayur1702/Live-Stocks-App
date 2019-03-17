@@ -21,18 +21,18 @@ export class StockHistoryContainerComponent implements OnInit {
       "theme": "candy"
     }
   };
-  width = 520;
-  height = 400;
-  type = 'msline';
-  dataFormat = 'json';
+
+  graphWidth:number ;
+  graphHeight:number = 400;
+  graphType:string = 'msline';
+  dataFormat:string = 'json';
   hideTable:boolean = true;
   toggleTableText:string = "Hide";
-  hideGraph:boolean = true;
-  toggleGraphText:string = "Hide"
+  hideGraph:boolean = false;
+  toggleGraphText:string = "Show";
   
 
-  ngOnInit() {
-    
+  ngOnInit() {    
   }
 
   ngOnChanges(){
@@ -48,9 +48,9 @@ export class StockHistoryContainerComponent implements OnInit {
     let category = [];
     let data = [];
     this.selectedTickerHistory[1].map(
-      x =>{
-        category.push({"label" : x[1].toLocaleTimeString()});
-        data.push({"value" : x[0]});
+      stockValue =>{
+        category.push({"label" : stockValue[1].toLocaleTimeString()});
+        data.push({"value" : stockValue[0]});
       }
     );    
     this.graphData["categories"] = [{"category":category}];
@@ -83,7 +83,6 @@ export class StockHistoryContainerComponent implements OnInit {
   }
 
   ngAfterViewChecked(){
-    this.width = this.theDiv.nativeElement.offsetHeight - 45;
-    console.log(this.theDiv.nativeElement.offsetHeight)
+    this.graphWidth = this.theDiv.nativeElement.offsetHeight - 45;
   }
 }
